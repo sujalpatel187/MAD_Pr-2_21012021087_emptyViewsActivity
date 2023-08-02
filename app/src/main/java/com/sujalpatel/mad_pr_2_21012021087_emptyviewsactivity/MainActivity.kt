@@ -8,26 +8,25 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
+import com.google.android.material.snackbar.Snackbar
 
- class MainActivity : AppCompatActivity() {
-     val TAG="MainActivity";
+class MainActivity : AppCompatActivity() {
+     val tag="MainActivity";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         showMesssage("On create method is called")
-        var textview= findViewById<TextView>(R.id.text_view)
-        textview.setOnClickListener(View.OnClickListener {
-            val intent=Intent(this,MainActivity2::class.java)
-            startActivity(intent)
-        })
-
-
     }
      fun showMesssage(message:String){
-         Log.i(TAG, message)
+         Log.i(tag, message)
          Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
+         val v:ConstraintLayout?=findViewById(R.id.my_cordinate)
+         if(v!=null){
+             Snackbar.make(v,message,Snackbar.LENGTH_SHORT).show()
+         }
      }
 
      override fun onStart() {
@@ -55,8 +54,8 @@ import androidx.activity.result.contract.ActivityResultContracts
          showMesssage("onStop method is called")
      }
 
-     override fun onDestroy() {
-         super.onDestroy()
-         Toast.makeText(this, "onDestroy method is called", Toast.LENGTH_SHORT).show()
-     }
+    override fun onDestroy() {
+        super.onDestroy()
+        showMesssage("onDestroy method is called")
+    }
 }
