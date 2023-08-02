@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="#FFFF00"
-    android:id="@+id/my_cordinate">
+    android:id="@+id/mainConstraint">
 
     <TextView
         android:layout_width="wrap_content"

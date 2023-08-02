@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
      fun showMesssage(message:String){
          Log.i(tag, message)
          Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-         val v:ConstraintLayout?=findViewById(R.id.my_cordinate)
-         if(v!=null){
-             Snackbar.make(v,message,Snackbar.LENGTH_SHORT).show()
+         val obj:ConstraintLayout?=findViewById(R.id.mainConstraint)
+         if(obj!= null){
+             Snackbar.make(obj,message,Snackbar.LENGTH_SHORT).show()
          }
      }
 
